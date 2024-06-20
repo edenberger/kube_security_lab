@@ -50,10 +50,8 @@ There's a number of playbooks which will bring up cluster's with a specific mis-
 - `ssh-to-create-pods-multi-node.yaml`
 - `ssh-to-get-secrets.yml` - Access to a running pod with a service account which has cluster level rights to get secrets.
 - `ssrf-to-insecure-port.yml` - This cluster has a web application with an SSRF vulnerability in it, which can be exploited to target the insecure port.
-- `tiller-noauth.yml` - Tiller service configured without authentication.
 - `unauth-api-server.yml` - API Server with anonymous access possible to sensitive paths.
 - `unauth-kubernetes-dashboard.yml` - Cluster with the Kubernetes Dashboard installed and available without authentication.
-- `rokubelet.yml` - Exposed read only kubelet. This one doesn't have a compromise path ready (yet!)
 
 If you would like to choose a random scenario to test your skills, run the `get-random-scenario.sh` script from your project folder!
 
@@ -67,25 +65,11 @@ If you want some information on one possible solution look in the `Scenario Walk
 
 ## Cleanup
 
-When you're finished with your cluster(s) just use:
+To delete the clusters when you're finished with them you can use:
 
 ```bash
-kind get clusters
+./delete_all.sh
 ```
-
-To get a list of running clusters, then:
-
-```bash
-kind delete cluster --name=[CLUSTERNAME]
-```
-
-to remove the kind clusters, and:
-
-```bash
-docker stop client
-```
-
-to remove the client container
 
 ## Demo Setup
 
