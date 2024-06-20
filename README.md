@@ -8,16 +8,12 @@ If you want to get an idea of how this works and where to start, there's an epis
 
 ## Pre-requisites
 
-Before starting you'll need to install
-
-- Docker
-- Ansible
-  - Also install the docker python module (e.g. `pip install docker` or `pip3 install docker`)
-- Kind 0.11.0 - Install guide [here](https://kind.sigs.k8s.io/docs/user/quick-start/)
-  -  Note: due to breaking changes in Kind v0.11.0+, currently only Kind v0.11.0 is supported
-  -  You can check your version with `kind --version`
-
-If you're running Ubuntu 18.04, you can use the `install_ansible_ubuntu.sh` file to do the ansible setup. If you're running Ubuntu 20.04 then you can just get ansible from apt.
+The setup that worked for me is:
+- Ubuntu 20.04.6 LTS host
+- 5.4.0-186-generic x86_64
+- Docker version 24.0.7, build 24.0.7-0ubuntu2~20.04.1
+- Ansible 2.9.6
+- Docker python module (e.g. `python3 -m pip install docker`) version 7.1.0
 
 ## Getting Started
 
