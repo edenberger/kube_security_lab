@@ -13,7 +13,10 @@ The setup that worked for me (Eden) is:
 - 5.4.0-186-generic x86_64
 - Docker version 24.0.7, build 24.0.7-0ubuntu2~20.04.1
 - Ansible 2.9.6
+- Kind version 0.11.1
 - Docker python module (e.g. `python3 -m pip install docker`) version 7.1.0
+
+* You can try the ```prerequisites.sh``` script (read it first), it might help with setting up the host machine.
 
 ## Getting Started
 
@@ -62,3 +65,7 @@ To delete the clusters when you're finished with them you can use:
 ```bash
 ./delete_all.sh
 ```
+
+## License
+Original repo had no license, so I cannot assign one myself.  
+But anyway, I am not responsible of any use or misuse of the software here (:  
