@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 set -ex
+DIR="$(realpath "$(dirname $0)")"
 apt autoremove -y --purge unattended-upgrades
 apt update
 apt upgrade -y
@@ -14,7 +15,7 @@ sudo apt install -y falco
 
 git -C ~/ clone https://github.com/edenberger/redk8s ||:
 
-cp -f ~/kube_security_lab/kind/kind /usr/local/bin/
+cp -f $DIR/kind/kind /usr/local/bin/
 
 kind create cluster
 kind delete cluster --name kind
