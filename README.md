@@ -4,11 +4,11 @@ The goal of this project is to make use of [Docker](https://www.docker.com) and 
 
 To get the flexibility to set-up the various vulnerable clusters we're using [Ansible](https://www.ansible.com/) playbooks.
 
-If you want to get an idea of how this works and where to start, there's an episode of [rawkode live](https://www.youtube.com/watch?reload=9&v=Srd1qqxDReA&t=6s) where we go through it all. If you run into trouble while installing the Pre-Requisites, check out [this installation guide](https://www.youtube.com/watch?v=y9PbNDdtHGo) which walks you though installing all the dependencies.
+If you want to get an idea of how this works and where to start, there's an episode of [rawkode live](https://www.youtube.com/watch?reload=9&v=Srd1qqxDReA&t=6s) where we go through it all.
 
 ## Pre-requisites
 
-The setup that worked for me is:
+The setup that worked for me (Eden) is:
 - Ubuntu 20.04.6 LTS host
 - 5.4.0-186-generic x86_64
 - Docker version 24.0.7, build 24.0.7-0ubuntu2~20.04.1
@@ -22,19 +22,13 @@ The setup that worked for me is:
  3. For the SSH clusters (the playbooks start ssh-to-*) SSH into a pod on the cluster with `ssh -p 32001 sshuser@[Kubernetes Cluster IP]` and a password of `sshuser`
  4. Attack away :)
 
-More detailed explanations below .
+More detailed explanations below.
 
 ## Client Machine
 
-There's a client machine with tools for Kubernetes security testing which can be brought up with the `client-machine.yml` playbook. It's best to use this client machine for all CLI tasks when running the scenarios, so you don't accidentally pick up creds from the host, but remember to start the kind cluster before the client machine, or the Docker network to connect to, may not be available.
+There's a client machine with tools for Kubernetes security testing which can be found (here)[https://github.com/edenberger/redk8s].
 
-- `ansible-playbook client-machine.yml`
-
-Once you've run the playbook, you can connect to the client machine with:-
-
-`docker exec -it client /bin/bash`
-
-The machine should be on the `172.18.0.0/24` network with the kind clusters (as well as being on the Docker default bridge)
+Note: to make the client machine in the same network with the kind clusters, use (these)[https://github.com/edenberger/redk8s?tab=readme-ov-file#if-youre-running-it-for-the-lab-githubcomedenbergerkube_security_lab-after-you-set-up-the-lab-run] instructions to run it.
 
 ## Vulnerable Clusters
 
@@ -53,15 +47,13 @@ There's a number of playbooks which will bring up cluster's with a specific mis-
 - `unauth-api-server.yml` - API Server with anonymous access possible to sensitive paths.
 - `unauth-kubernetes-dashboard.yml` - Cluster with the Kubernetes Dashboard installed and available without authentication.
 
-If you would like to choose a random scenario to test your skills, run the `get-random-scenario.sh` script from your project folder!
-
 ## Using the clusters
 
 Each of these can be used to try out various techniques for attacking Kubernetes clusters.  In general the goal of each exercise should be to get access to the `/etc/kubernetes/pki/ca.key` file as that's a ["golden key"](https://raesene.github.io/blog/2019/04/16/kubernetes-certificate-auth-golden-key/) to persistent cluster access.
 
-For each cluster the place to start is in the `Scenario Setups` which has details of how to get started.  
+For each cluster the place to start is in the `setupScenarios` which has details of how to get started.  
 
-If you want some information on one possible solution look in the `Scenario Walkthroughs` folder
+If you want some information on one possible solution look in the `walkthroughScenarios` folder
 
 ## Cleanup
 
@@ -70,7 +62,3 @@ To delete the clusters when you're finished with them you can use:
 ```bash
 ./delete_all.sh
 ```
-
-## Demo Setup
-
-There's a specific pair of playbooks which can be useful for demonstrating Kubernetes vulnerabilities.  the `demo-cluster.yml` brings up a kind cluster with multiple vulnerabilities and the `demo-client-machine.yml` brings up a client container with the Kubernetes Kubeconfig for the demo cluster already installed.  For this pair, it's important to bring up the cluster before the client machine, so that the kubeconfig file is available to be installed.
