@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
 set -ex
+sudo -v
 DIR="$(realpath "$(dirname $0)")"
-apt autoremove -y --purge unattended-upgrades
-apt update
-apt upgrade -y
-apt install -y git ansible docker.io docker-buildx python3-pip make lolcat byobu
-ln -sf /usr/games/lolcat /usr/local/bin/
+sudo apt autoremove -y --purge unattended-upgrades
+sudo apt update
+sudo apt upgrade -y
+sudo apt install -y git ansible docker.io docker-buildx python3-pip make lolcat byobu curl
+sudo ln -sf /usr/games/lolcat /usr/local/bin/
 
 python3 -m pip install docker
 
