@@ -29,9 +29,9 @@ More detailed explanations below.
 
 ## Client Machine
 
-There's a client machine with tools for Kubernetes security testing which can be found (here)[https://github.com/edenberger/redk8s].
-
-Note: to make the client machine in the same network with the kind clusters, use (these)[https://github.com/edenberger/redk8s?tab=readme-ov-file#if-youre-running-it-for-the-lab-githubcomedenbergerkube_security_lab-after-you-set-up-the-lab-run] instructions to run it.
+There's a client machine with tools for Kubernetes security testing which can be found [here](https://github.com/edenberger/redk8s).  
+  
+Note: to make the client machine in the same network with the kind clusters, use [these](https://github.com/edenberger/redk8s?tab=readme-ov-file#if-youre-running-it-for-the-lab-githubcomedenbergerkube_security_lab-after-you-set-up-the-lab-run) instructions to run it.
 
 ## Vulnerable Clusters
 
