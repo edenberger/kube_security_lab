@@ -10,7 +10,7 @@ sudo ln -sf /usr/games/lolcat /usr/local/bin/
 
 python3 -m pip install docker
 
-curl -fsSL https://falco.org/repo/falcosecurity-packages.asc | \
+curl -fsSL https://falco.org/repo/falcosecurity-packages.asc |
   sudo gpg --yes --dearmor -o /usr/share/keyrings/falco-archive-keyring.gpg
 sudo apt install -y falco
 
