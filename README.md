@@ -38,7 +38,7 @@ Note: to make the client machine in the same network with the kind clusters, use
 There's a number of playbooks which will bring up cluster's with a specific mis-configuration that can be exploited.
 
 - `etcd-noauth.yml` - ETCD Server available without authentication
-- `insecure-port.yml` - Kubernetes API Server Insecure Port available
+- `insecure-master-api-port.yml` - Kubernetes API Server Insecure Port available
 - `rwkubelet-noauth.yml` - Kubelet Read-Write Port available without authentication
 - `ssh-to-cluster-admin.yml` - Access to a running pod with a service account which has cluster-admin rights.
 - `ssh-to-create-daemonsets-hard.yml`

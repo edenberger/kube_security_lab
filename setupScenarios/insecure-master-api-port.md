@@ -1,7 +1,7 @@
 ## Insecure Port
 
 
-- `ansible-playbook insecure-port.yml`
+- `ansible-playbook insecure-master-api-port.yml`
 
 Then get a note of the IP address of the Kubernetes cluster from the output of the ansible playbook or with 
 
