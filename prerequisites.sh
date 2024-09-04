@@ -12,7 +12,7 @@ python3 -m pip install docker
 
 git -C ~/ clone https://github.com/edenberger/redk8s ||:
 
-cp -f $DIR/kind/kind /usr/local/bin/
+sudo cp -f $DIR/kind/kind /usr/local/bin/
 
-kind create cluster
-kind delete cluster --name kind
+sudo kind create cluster
+sudo kind delete cluster --name kind
